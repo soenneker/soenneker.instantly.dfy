@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 /// <summary>
-/// A .NET typesafe implementation of Instantly.ai's DFY API
+/// Manages Instantly DFY email-account orders, ordered accounts, and domain discovery.
 /// </summary>
 public interface IInstantlyDfyUtil
 {

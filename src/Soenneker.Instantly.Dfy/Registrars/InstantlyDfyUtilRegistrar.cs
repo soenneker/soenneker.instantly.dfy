@@ -6,7 +6,7 @@ using Soenneker.Instantly.ClientUtil.Registrars;
 namespace Soenneker.Instantly.Dfy.Registrars;
 
 /// <summary>
-/// A .NET typesafe implementation of Instantly.ai's DFY API
+/// Registers Instantly DFY ordering and domain operations.
 /// </summary>
 public static class InstantlyDfyUtilRegistrar
 {

@@ -6,6 +6,7 @@ using Soenneker.Instantly.ClientUtil.Abstract;
 using Soenneker.Instantly.Dfy.Abstract;
 using Soenneker.Instantly.OpenApiClient;
 using Soenneker.Instantly.OpenApiClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -13,7 +14,6 @@ using System.Threading.Tasks;
 
 namespace Soenneker.Instantly.Dfy;
 
-/// <inheritdoc cref="IInstantlyDfyUtil"/>
 public sealed class InstantlyDfyUtil : IInstantlyDfyUtil
 {
     private const int _batchSize = 100;
@@ -103,6 +103,9 @@ public sealed class InstantlyDfyUtil : IInstantlyDfyUtil
             if (response.Items.Count < _batchSize || string.IsNullOrWhiteSpace(response.NextStartingAfter))
                 break;
 
+            if (response.NextStartingAfter == startingAfter)
+                throw new InvalidOperationException("Instantly returned a repeated DFY order pagination cursor.");
+
             startingAfter = response.NextStartingAfter;
         }
 
@@ -146,6 +149,9 @@ public sealed class InstantlyDfyUtil : IInstantlyDfyUtil
 
             if (response.Items.Count < _batchSize || string.IsNullOrWhiteSpace(response.NextStartingAfter))
                 break;
+
+            if (response.NextStartingAfter == startingAfter)
+                throw new InvalidOperationException("Instantly returned a repeated DFY account pagination cursor.");
 
             startingAfter = response.NextStartingAfter;
         }
