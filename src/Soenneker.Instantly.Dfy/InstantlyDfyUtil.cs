@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Soenneker.Instantly.Dfy;
 
+/// <inheritdoc cref="IInstantlyDfyUtil" />
 public sealed class InstantlyDfyUtil : IInstantlyDfyUtil
 {
     private const int _batchSize = 100;
