@@ -47,6 +47,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Instantly.ClientUtil" Version="11.0.774" />
+        <PackageReference Include="Soenneker.Instantly.ClientUtil" Version="11.0.775" />
     </ItemGroup>
 </Project>
